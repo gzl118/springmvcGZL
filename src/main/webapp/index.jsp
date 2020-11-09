@@ -12,6 +12,6 @@
 </head>
 <body>
 <h2>第一个单独的springmvc程序</h2>
-<a href="gzl/hello">跳转</a>
+<a href="gzl/testRequestMapping?uname=aaa">跳转</a>
 </body>
 </html>
