@@ -22,23 +22,13 @@ public class User implements Serializable {
         this.sex = sex;
     }
 
-    private  Integer sex;
-    private Date data;
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
+    private Integer sex;
 
     @Override
     public String toString() {
         return "User{" +
                 "age=" + age +
                 ", sex=" + sex +
-                ", data=" + data +
                 '}';
     }
 }

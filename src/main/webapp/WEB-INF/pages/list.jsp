@@ -1,20 +1,20 @@
 <%--
   Created by IntelliJ IDEA.
   User: gzl
-  Date: 2020-11-09
-  Time: 10:26
+  Date: 2020-11-11
+  Time: 15:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-
-<% System.out.println("页面执行");%>
-<h1>成功打开第一个页面</h1>
-${user.age}
-${user.sex}
+<h1>查询所有数据</h1>
+<c:forEach items="${list}"  var="item">
+    ${item.userName}
+</c:forEach>
 </body>
 </html>

@@ -11,7 +11,10 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--开启注解扫描-->
-    <context:component-scan base-package="com.gzl.controller"></context:component-scan>
+    <context:component-scan base-package="com.gzl">
+        <context:include-filter type="annotation"
+                                expression="org.springframework.stereotype.Controller"></context:include-filter>
+    </context:component-scan>
 
     <!--视图解析器-->
     <bean id="internalResourceViewResolver"
@@ -20,6 +23,33 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
+    <!--配置自定义视图转换器-->
+    <!--<bean class="org.springframework.context.support.ConversionServiceFactoryBean" id="conversionServiceFactory">
+        <property name="converters">
+            <set>
+                <bean class="com.gzl.utils.StringToDateConverter"></bean>
+            </set>
+        </property>
+    </bean>-->
+
+    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
+
+    <!--配置文件解析器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10240"></property>
+    </bean>
+
+    <!-- 配置异常解析器-->
+    <bean class="com.gzl.exception.SysExceptionResolver" id="exceptionResolver"/>
+
     <!--开启springmvc框架的注解支持-->
     <mvc:annotation-driven/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/gzl/*"/>
+            <!-- <mvc:exclude-mapping path="" />-->
+            <bean class="com.gzl.exception.MyInterceptor" id="myInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

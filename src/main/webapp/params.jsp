@@ -5,7 +5,7 @@
   Time: 16:44
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"  isELIgnored="false" %>
 <html>
 <head>
     <title>Title</title>
@@ -32,5 +32,7 @@
 
     <input type="submit" value="提交"/>
 </form>
+
+<a href="param/testParam?uname=123456">测试参数传递</a>
 </body>
 </html>
